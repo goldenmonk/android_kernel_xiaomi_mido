@@ -617,6 +617,9 @@ static void thermal_zone_device_init(struct thermal_zone_device *tz)
 {
 	struct thermal_instance *pos;
 
+	tz->prev_low_trip = -INT_MAX;
+	tz->prev_high_trip = INT_MAX;
+
 	if (tz->tzp && tz->tzp->tracks_low)
 		tz->temperature = THERMAL_TEMP_INVALID_LOW;
 	else
